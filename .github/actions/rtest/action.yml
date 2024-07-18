@@ -1,0 +1,8 @@
+name: 'Some Workflow'
+description: 'A custom workflow for PRs that prints Hello'
+author: 'Your Name'
+runs:
+  using: 'composite'
+  steps:
+    - name: Print Hello
+      run: echo "Hello"
