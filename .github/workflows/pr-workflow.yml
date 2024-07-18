@@ -1,0 +1,17 @@
+# .github/workflows/pr-workflow.yml
+name: PR Workflow
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  run-custom-action:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Run custom action
+      uses: ./github/actions/rtest
