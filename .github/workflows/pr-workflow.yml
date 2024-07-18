@@ -14,4 +14,4 @@ jobs:
       uses: actions/checkout@v4
     
     - name: Run custom action
-      uses: ./github/actions/rtest
+      uses: ./.github/actions/rtest
