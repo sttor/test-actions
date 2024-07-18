@@ -6,3 +6,4 @@ runs:
   steps:
     - name: Print Hello
       run: echo "Hello"
+      shell: bash
