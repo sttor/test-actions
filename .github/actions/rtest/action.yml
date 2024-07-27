@@ -5,5 +5,5 @@ runs:
   using: 'composite'
   steps:
     - name: Print Hello
-      run: echo "Hello"
+      run: echo "Hello World"
       shell: bash
