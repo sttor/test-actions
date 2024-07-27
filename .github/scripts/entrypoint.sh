@@ -2,6 +2,9 @@
 
 set -e
 
+echo "$PR_NUMBER"
+echo "$GITHUB_EVENT_PATH"
+
 if [ -z "$PR_NUMBER" ]; then
 	PR_NUMBER=$(jq -r ".pull_request.number" "$GITHUB_EVENT_PATH")
 	if [[ "$PR_NUMBER" == "null" ]]; then
