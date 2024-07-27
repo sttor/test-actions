@@ -1,0 +1,30 @@
+name: Rebase PR
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  rebase:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python for dependencies
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.x
+
+    - name: Install jq
+      run: sudo apt-get install jq
+
+    - name: Run rebase script
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        MAX_RETRIES: 6
+        RETRY_INTERVAL: 10
+      run: |
+        chmod +x .github/scripts/entrypoint.sh
+        .github/scripts/entrypoint.sh
+
